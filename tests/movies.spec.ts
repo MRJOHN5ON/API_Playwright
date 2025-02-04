@@ -3,7 +3,7 @@ import { getMovies } from './helpers/apiHelpers';
 import type { Movie } from './helpers/apiTypes';
 
 test('Can search for movies', async () => {
-  const response = await getMovies('Avengers');
+  const response = await getMovies('spider man');
   expect(response.status()).toBe(200);
   
   const responseBody = await response.json();
@@ -17,4 +17,13 @@ test('Can search for movies', async () => {
     expect(movie).toHaveProperty('Type');
     expect(movie).toHaveProperty('Poster');
   });
+});
+
+test('searching for invalid movie returns an error', async () => {
+  const response = await getMovies('470283720384723084');
+  expect(response.status()).toBe(200);
+
+  const responseBody = await response.json();
+  expect(responseBody).toHaveProperty('Response', 'False');
+  expect(responseBody).toHaveProperty('Error', 'Movie not found!');
 });

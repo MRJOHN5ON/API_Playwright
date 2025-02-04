@@ -1,0 +1,20 @@
+# Node modules (dependencies)
+node_modules/
+
+# Playwright test results and reports
+test-results/
+playwright-report/
+
+# Environment variables (sensitive credentials)
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+
+# VS Code settings (optional)
+.vscode/
+
+# Dependency lock file (optional, keep if needed)
+package-lock.json
