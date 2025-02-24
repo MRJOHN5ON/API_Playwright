@@ -13,6 +13,7 @@ export const getMovies = async (title: string) => {
       s: `${title}`,
     },
   });
+  
 // Save results for easy debugging later
 const responseBody = await response.json();
 saveResults('searchForMovieResponse.json', responseBody);
