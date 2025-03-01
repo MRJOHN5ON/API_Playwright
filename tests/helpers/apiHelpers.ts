@@ -1,20 +1,19 @@
 import { request } from '@playwright/test';
-import { baseUrl } from '../../playwright.config';const { writeFile } = require('fs').promises;
+import { baseUrl } from '../../playwright.config';
+const { writeFile } = require('fs').promises;
 import dotenv from 'dotenv';
-// Load environment variables from .env file
+
+
 dotenv.config();
 
 
 export const getMovies = async (title: string) => {
   const context = await request.newContext();
 
-  const response = await context.get(baseUrl, {
-    params: {
-      s: `${title}`,
-    },
+  const response = await context.get(baseUrl, {params: {s: `${title}`,},
   });
   
-// Save results for easy debugging later
+// Save results
 const responseBody = await response.json();
 saveResults('searchForMovieResponse.json', responseBody);
 

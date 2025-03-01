@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 // Load environment variables from .env file
 dotenv.config();
 // Now you can access your API key
-const apiKey = process.env.RAPIDAPI_API_KEY;
+export const apiKey = process.env.RAPIDAPI_API_KEY;
 export const host = 'movie-database-alternative.p.rapidapi.com';
 export const baseUrl = `https://${host}`;
 

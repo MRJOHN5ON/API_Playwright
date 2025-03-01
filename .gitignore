@@ -16,5 +16,3 @@ playwright-report/
 # VS Code settings (optional)
 .vscode/
 
-# Dependency lock file (optional, keep if needed)
-package-lock.json

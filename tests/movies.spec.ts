@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import { getMovies } from './helpers/apiHelpers';
 import type { Movie } from './helpers/apiTypes';
 
+
+
 test('Can search for movies', async () => {
   const response = await getMovies('matrix');
   expect(response.status()).toBe(200);
