@@ -20,7 +20,7 @@ saveResults('searchForMovieResponse.json', responseBody);
 return response;
 };
 
-async function saveResults(fileName: string, results: JSON) {
+export async function saveResults(fileName: string, results: JSON) {
   const resultsJSON = JSON.stringify(results, null, 2); // Pretty print JSON
   try {
       await writeFile(`test-results/${fileName}`, resultsJSON, 'utf-8');
