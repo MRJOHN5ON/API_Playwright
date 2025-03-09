@@ -27,3 +27,20 @@ test('Can search for movies', async ({ request, page }) => {
     expect(movie).toHaveProperty('Poster');
   });
 });
+
+test('searching for invalid movie returns an error', async ({ request, page }) => {
+  const response = await apiGet({ request, page }, `${baseUrl}`, {
+    params: { s: '470283720384723084' },
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': host,
+      'Content-Type': 'application/json',
+    },
+  });
+  
+  expect(response.status()).toBe(200);
+  const responseBody = await response.json();
+  expect(responseBody).toHaveProperty('Response', 'False');
+  expect(responseBody).toHaveProperty('Error', 'Movie not found!');
+});
+
