@@ -40,7 +40,7 @@ test('searching for invalid movie returns an error', async ({ request, page }) =
       'Content-Type': 'application/json',
     },
   });
-  
+
   expect(response.status()).toBe(200);
   const responseBody = await response.json();
   saveResults('searchForInvalidMovieResponse.json', responseBody);
